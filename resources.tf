@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "test" {
-  name     = "${var.resource-group-name}"
-  location = "${var.location}"
+  name     = var.resource-group-name
+  location = var.location
 }
 
 resource "azurerm_sql_server" "test" {
-  name                         = "fantestsqlserver135877"
+  name                         = "fantest135877"
   resource_group_name          = azurerm_resource_group.test.name
   location                     = azurerm_resource_group.test.location
   version                      = "12.0"
@@ -13,7 +13,7 @@ resource "azurerm_sql_server" "test" {
 }
 
 resource "azurerm_sql_database" "test" {
-  name                = "terraformdatabase13432435"
+  name                = "fan13432435"
   resource_group_name = azurerm_resource_group.test.name
   location            = azurerm_resource_group.test.location
   server_name         = azurerm_sql_server.test.name
@@ -49,12 +49,6 @@ resource "azurerm_app_service" "test" {
 
   app_settings = {
     "SOME_KEY" = "some-value"
-  }
-
-  connection_string {
-    name  = "Database"
-    type  = "SQLServer"
-    value = "Server=tcp:${azurerm_sql_server.test.fully_qualified_domain_name} Database=${azurerm_sql_database.test.name};User ID=${azurerm_sql_server.test.administrator_login};Password=${azurerm_sql_server.test.administrator_login_password};Trusted_Connection=False;Encrypt=True;"
   }
 }
 
