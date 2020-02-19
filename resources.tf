@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "test" {
 }
 
 resource "azurerm_sql_server" "test" {
-  name                         = "terraformsqlserver"
+  name                         = "fantestsqlserver135877"
   resource_group_name          = azurerm_resource_group.test.name
   location                     = azurerm_resource_group.test.location
   version                      = "12.0"
@@ -13,7 +13,7 @@ resource "azurerm_sql_server" "test" {
 }
 
 resource "azurerm_sql_database" "test" {
-  name                = "terraformdatabase"
+  name                = "terraformdatabase13432435"
   resource_group_name = azurerm_resource_group.test.name
   location            = azurerm_resource_group.test.location
   server_name         = azurerm_sql_server.test.name
