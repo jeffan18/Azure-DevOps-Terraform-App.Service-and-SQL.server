@@ -1,7 +1,7 @@
+# This code has been successfully deployed using Azure Devops
+## CI build pipeline and CD release pipeline.
 
 
-
-# Azure-DevOps-Fan
 
 1.clone the previously verified Terraform code
 
