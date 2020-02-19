@@ -1,5 +1,5 @@
 # This code has been successfully deployed using Azure Devops
-## CI build pipeline and CD release pipeline.
+## both CI build pipeline and CD release pipeline passed!
 
 
 
